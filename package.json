@@ -1,6 +1,6 @@
 {
   "name": "vuxel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Open Source Voxel editor",
   "scripts": {
     "start": "parcel src/index.html",
