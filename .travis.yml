@@ -1,0 +1,6 @@
+language: node_js
+script:
+  - echo 'Installing Deps'
+  - npm i
+  - echo 'Test Build'
+  - npm run build
