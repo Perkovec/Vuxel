@@ -10,6 +10,15 @@ Vuxel - tool for created 3D models using voxels.
 
 ![Demo](demo.png)
 
+## Roadmap
+
+[] Camera rotation
+[] Orientation indicator and controller
+[] Painting tools
+[] Advanced color picker
+[] Export/import models
+[] Layers
+
 ## Licence
 
 Vuxel is released under the MIT licence. 
