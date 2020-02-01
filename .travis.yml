@@ -1,6 +1,8 @@
 language: node_js
+node_js:
+  - "12"
 script:
   - echo 'Installing Deps'
-  - npm i
+  - yarn
   - echo 'Test Build'
-  - npm run build
+  - yarn run build
