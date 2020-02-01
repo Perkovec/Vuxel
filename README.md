@@ -1,6 +1,6 @@
 # Vuxel
 
-[![Build Status](https://travis-ci.org/Perkovec/Vuxel.svg?branch=master)](https://travis-ci.org/Perkovec/Vuxel)
+[![Build Status](https://travis-ci.org/Perkovec/Vuxel.svg?branch=master)](https://travis-ci.org/Perkovec/Vuxel) [![Greenkeeper badge](https://badges.greenkeeper.io/Perkovec/Vuxel.svg)](https://greenkeeper.io/)
 
 Version 0.0.1
 
