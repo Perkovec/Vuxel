@@ -4,7 +4,7 @@
   "description": "Open Source Voxel editor",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --no-source-maps --public-url",
+    "build": "parcel build src/index.html --no-source-maps",
     "build:gh-pages": "parcel build src/index.html --no-source-maps --public-url /Vuxel/"
   },
   "author": "perkovec",
