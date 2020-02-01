@@ -12,12 +12,12 @@ Vuxel - tool for created 3D models using voxels.
 
 ## Roadmap
 
-[] Camera rotation
-[] Orientation indicator and controller
-[] Painting tools
-[] Advanced color picker
-[] Export/import models
-[] Layers
+- [ ] Camera rotation
+- [ ] Orientation indicator and controller
+- [ ] Painting tools
+- [ ] Advanced color picker
+- [ ] Export/import models
+- [ ] Layers
 
 ## Licence
 
