@@ -7,19 +7,22 @@ Promise.all([
 
 	// PLUGINS
 	import('./plugins/color-picker.js'),
+	import('./plugins/camera-control.js'),
 ]).then(([
 	{ THREE },
 	{ App },
 
 	// PLUGINS
 	{ ColorPicker },
+	{ CameraControl },
 ]) => {
 	const plugins = [
 		ColorPicker,
+		CameraControl,
 	];
 
 	const app = new App(THREE, plugins);
-	app.init();
+	// app.init();
 	app.render();
 	// app.animate();
 });

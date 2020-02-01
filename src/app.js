@@ -32,24 +32,23 @@ export class App {
 		this.editorContainer.addEventListener('mousedown', event => this.onDocumentMouseDown(event), false);
 		document.addEventListener('keydown', event => this.onDocumentKeyDown(event), false);
     document.addEventListener('keyup', event => this.onDocumentKeyUp(event), false);
-    
-    const pluginsConfig = {
-      THREE,
-      brushMaterial: this.cubeMaterial,
-    }
-
-    plugins.forEach(Plugin => {
-      new Plugin(pluginsConfig);
-    });
-  }
-
-  init() {
-    const THREE = this.THREE;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
 	  this.renderer.setSize(this.editorContainer.clientWidth, this.editorContainer.clientHeight);
     this.editorContainer.appendChild(this.renderer.domElement);
     this.rect = this.renderer.domElement.getBoundingClientRect();
+    
+    const pluginsConfig = {
+      THREE,
+      brushMaterial: this.cubeMaterial,
+      renderer: this.renderer,
+      camera: this.camera,
+      render: this.render.bind(this),
+    }
+
+    plugins.forEach(Plugin => {
+      new Plugin(pluginsConfig);
+    });
   }
 
   createLight() {
@@ -83,11 +82,6 @@ export class App {
 		this.plane = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ visible: false }));
     this.scene.add(this.plane);
     this.objects.push(this.plane);
-  }
-
-  animate() {
-    requestAnimationFrame(() => this.animate());
-    this.renderer.render(this.scene, this.camera);
   }
 
   onWindowResize() {
