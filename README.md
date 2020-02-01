@@ -1,5 +1,7 @@
 # Vuxel
 
+[![Build Status](https://travis-ci.org/Perkovec/Vuxel.svg?branch=master)](https://travis-ci.org/Perkovec/Vuxel)
+
 Version 0.0.1
 
 By Ilya Karpuk perkovec24@gmail.com
