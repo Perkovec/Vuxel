@@ -12,6 +12,25 @@ Vuxel - tool for created 3D models using voxels.
 
 ![Demo](demo.png)
 
+## Install & Build
+
+Firstly, install dependencies:
+```bash
+npm install
+```
+
+We are using [Parcel](https://github.com/parcel-bundler/parcel) to build Vuxel.
+
+If you want to start dev server, run command:
+```bash
+npm start
+```
+
+For build project use `build` script:
+```bash
+npm run build
+```
+
 ## Roadmap
 
 - [ ] Camera rotation
