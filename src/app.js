@@ -91,7 +91,8 @@ export class App {
     this.camera.aspect = this.editorContainer.clientWidth / this.editorContainer.clientHeight;
 		this.camera.updateProjectionMatrix();
 
-		this.renderer.setSize(this.editorContainer.clientWidth, this.editorContainer.clientHeight);
+    this.renderer.setSize(this.editorContainer.clientWidth, this.editorContainer.clientHeight);
+    this.render();
   }
 
   onDocumentMouseMove(event) {
