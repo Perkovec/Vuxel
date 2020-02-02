@@ -2,6 +2,7 @@ export class App {
   constructor(THREE, plugins) {
     this.THREE = THREE;
     this.objects = [];
+    this.sceneObjects = [];
     this.isShiftDown = false;
     this.editorContainer = document.getElementById('editor');
 
@@ -44,6 +45,8 @@ export class App {
       renderer: this.renderer,
       camera: this.camera,
       render: this.render.bind(this),
+      scene: this.scene,
+      sceneObjects: this.sceneObjects,
     }
 
     plugins.forEach(Plugin => {
@@ -100,7 +103,7 @@ export class App {
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
-    const intersects = this.raycaster.intersectObjects(this.objects);
+    const intersects = this.raycaster.intersectObjects([...this.objects, ...this.sceneObjects]);
     if (intersects.length > 0) {
       const intersect = intersects[0];
       this.rollOverMesh.position.copy(intersect.point).add(intersect.face.normal);
@@ -120,7 +123,7 @@ export class App {
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
-    const intersects = this.raycaster.intersectObjects(this.objects);
+    const intersects = this.raycaster.intersectObjects([...this.objects, ...this.sceneObjects]);
     if (intersects.length > 0) {
       const intersect = intersects[0];
 
@@ -128,7 +131,7 @@ export class App {
       if (this.isShiftDown) {
         if (intersect.object !== this.plane) {
           this.scene.remove(intersect.object);
-          this.objects.splice(this.objects.indexOf(intersect.object), 1);
+          this.sceneObjects.splice(this.sceneObjects.indexOf(intersect.object), 1);
         }
       } else {
         // create cube
@@ -137,7 +140,7 @@ export class App {
         voxel.position.divideScalar(50).floor().multiplyScalar(50).addScalar(25);
         this.scene.add(voxel);
 
-        this.objects.push(voxel);
+        this.sceneObjects.push(voxel);
       }
       this.render();
     }
