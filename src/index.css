@@ -5,6 +5,13 @@ html, body {
   height: 100%;
 }
 
+.main-layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .editor-layout {
   width: 100%;
   height: 100%;
@@ -17,6 +24,7 @@ html, body {
 
 .editor-layout #editor canvas {
   outline: none;
+  display: block;
 }
 
 .brush-color-container {
@@ -91,11 +99,27 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #191818;
-  color: #ffffff;
+  background-color: #f0f0f0;
+  color: grey;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
+  flex-direction: column;
+}
+
+.ui-loader .loader-container {
+  width: 300px;
+  height: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.ui-loader .loader-progress {
+  height: 100%;
+  background-color: grey;
+  width: 0;
+  transition: width 0.2s ease-in-out;
 }
 
 /* (UI) SIDEBAR */
@@ -104,6 +128,7 @@ html, body {
   width: 275px;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid grey;
 }
 
 .ui-sidebar .pure-menu-list {
@@ -114,4 +139,20 @@ html, body {
   padding: 10px;
   font-size: 14px;
   color: grey;
+}
+
+/* (UI) TOPBAR */
+
+.ui-topbar {
+  border-bottom: 1px solid grey;
+  user-select: none;
+}
+
+.ui-topbar .pure-menu-children {
+  border: 1px solid grey;
+}
+
+.ui-topbar .pure-menu-list {
+  margin-left: 20px;
+  cursor: pointer;
 }

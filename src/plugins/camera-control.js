@@ -308,7 +308,6 @@ export class CameraControl {
   }
   
   onKeyDown(event) {
-    console.log(event);
 		if (this.enableKeys === false || this.enablePan === false) return;
 
 		this.handleKeyDown(event);
