@@ -1,0 +1,232 @@
+/* GLOBAL */
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.main-layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-layout {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.editor-layout #editor {
+  flex: 1;
+}
+
+.editor-layout #editor canvas {
+  outline: none;
+  display: block;
+  max-width: 100%;
+}
+
+.brush-color-container {
+  padding: 0px 15px;
+}
+
+.brush-color {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.brush-color.brown {
+  background-color: #800000;
+}
+
+.brush-color.red {
+  background-color: #FF0000;
+}
+
+.brush-color.black {
+  background-color: #000000;
+}
+
+.brush-color.white {
+  background-color: #FFFFFF;
+}
+
+.brush-color.yellow {
+  background-color: #FFFF00;
+}
+
+.brush-color.lime {
+  background-color: #00FF00;
+}
+
+.brush-color.green {
+  background-color: #008000;
+}
+
+.brush-color.aqua {
+  background-color: #00FFFF;
+}
+
+.brush-color.blue {
+  background-color: #0000FF;
+}
+
+.brush-color.fuchsia {
+  background-color: #FF00FF;
+}
+
+.brush-color.purple {
+  background-color: #800080;
+}
+
+.brush-color.orange {
+  background-color: #FF8000;
+}
+
+.brush-color-input {
+  margin: 20px 0px;
+}
+
+.tools-container {
+  padding: 0px 15px;
+}
+
+.tool-item {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid black;
+  margin: 5px;
+  background-color: #ffffff;
+  font-size: 20px;
+}
+
+.tool-item.flaticon-3d:before {
+  margin-left: 2px;
+}
+
+/* (UI) LOADER */
+
+.ui-loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f0f0f0;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  flex-direction: column;
+}
+
+.ui-loader .loader-container {
+  width: 300px;
+  height: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.ui-loader .loader-progress {
+  height: 100%;
+  background-color: grey;
+  width: 0;
+  transition: width 0.2s ease-in-out;
+}
+
+/* (UI) SIDEBAR */
+
+.ui-sidebar {
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid grey;
+}
+
+.ui-sidebar .pure-menu-list {
+  flex: 1;
+}
+
+.ui-sidebar .pure-menu-item {
+  height: auto;
+}
+
+.ui-sidebar .ui-sidebar-guide-block {
+  padding: 10px;
+  font-size: 14px;
+  color: grey;
+}
+
+/* (UI) TOPBAR */
+
+.ui-topbar {
+  border-bottom: 1px solid grey;
+  user-select: none;
+}
+
+.ui-topbar .pure-menu-children {
+  border: 1px solid grey;
+}
+
+.ui-topbar .pure-menu-list {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* (UI) MODAL */
+
+.ui-modal {
+  display: none;
+}
+
+.ui-modal.is-open {
+  display: block;
+}
+
+.ui-modal .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-modal .modal-container {
+  background-color: #ffffff;
+  min-width: 300px;
+  border-radius: 5px;
+}
+
+.ui-modal .modal-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  border-bottom: 1px solid grey;
+}
+
+.ui-modal .modal-container .modal-content {
+  padding: 0px 10px 10px;
+}
+
+.ui-modal .modal-container .modal-close {
+  border: none;
+  padding: 3px;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  background: none;
+  outline: none;
+}

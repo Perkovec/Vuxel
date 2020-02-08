@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Perkovec/Vuxel.svg?branch=master)](https://travis-ci.org/Perkovec/Vuxel) [![Greenkeeper badge](https://badges.greenkeeper.io/Perkovec/Vuxel.svg)](https://greenkeeper.io/)
 
-Version 0.0.2
+Version 0.0.3
 
 By Ilya Karpuk perkovec24@gmail.com
 
@@ -37,7 +37,7 @@ npm run build
 - [ ] Orientation indicator and controller
 - [ ] Painting tools
 - [ ] Advanced color picker
-- [ ] Export/import models
+- [x] Export/import models
 - [ ] Layers
 
 ## Licence

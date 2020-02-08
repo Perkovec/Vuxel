@@ -1,6 +1,10 @@
 /* BASED ON https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js */
 
 export class CameraControl {
+	static meta = {
+    name: 'camera-control',
+	};
+
   constructor(configs) {
     const THREE = this.THREE = configs.THREE;
 
@@ -308,7 +312,6 @@ export class CameraControl {
   }
   
   onKeyDown(event) {
-    console.log(event);
 		if (this.enableKeys === false || this.enablePan === false) return;
 
 		this.handleKeyDown(event);

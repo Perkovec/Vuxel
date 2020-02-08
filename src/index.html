@@ -5,10 +5,18 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <div class="editor-layout">
-      <include src="ui-parts/sidebar.html"></include>
-      <div id="editor"></div>
+    <include src="ui-parts/loader.html"></include>
+    <div class="main-layout">
+      <include src="ui-parts/topbar.html"></include>
+      <div class="editor-layout">
+        <include src="ui-parts/sidebar.html"></include>
+        <div id="editor"></div>
+      </div>
     </div>
+
+    <!-- MODALS -->
+    <include src="ui-parts/modals/about-modal.html"></include>
+
     <script src="index.js"></script>
   </body>
 </html>
