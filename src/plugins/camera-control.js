@@ -1,6 +1,10 @@
 /* BASED ON https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js */
 
 export class CameraControl {
+	static meta = {
+    name: 'camera-control',
+	};
+
   constructor(configs) {
     const THREE = this.THREE = configs.THREE;
 

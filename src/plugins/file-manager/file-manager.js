@@ -2,6 +2,10 @@ import { exporter } from './exporter';
 import { loader } from './loader';
 
 export class FileManager {
+  static meta = {
+    name: 'file-manager',
+  };
+
   constructor(configs) {
     this.configs = configs;
 

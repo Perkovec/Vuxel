@@ -1,5 +1,6 @@
 import 'purecss/build/pure-min.css';
-import './index.css';
+import './styles/flaticon.css';
+import './styles/index.css';
 
 const loader = document.getElementById('loader');
 const loaderContainer = document.getElementById('loader-container');
@@ -21,11 +22,16 @@ const progressPromise = (promises, tickCallback) => {
 }
 
 const assets = [
+	// CORE
 	import('./three.js'),
 	import('./app.js'),
 
+	// LIBS
+	import('micromodal/dist/micromodal.min.js'),
+
 	// PLUGINS
 	import('./plugins/file-manager/file-manager.js'),
+	import('./plugins/tools/index.js'),
 	import('./plugins/color-picker.js'),
 	import('./plugins/camera-control.js'),
 ];
@@ -37,16 +43,24 @@ const update = (completed, total) => {
 
 progressPromise(assets, update)
 	.then(([
+		// CORE
 		{ THREE },
 		{ App },
 
+		// LIBS
+		MicroModal,
+
 		// PLUGINS
 		{ FileManager },
+		{ Tools },
 		{ ColorPicker },
 		{ CameraControl },
 	]) => {
+		MicroModal.init();
+
 		const plugins = [
 			FileManager,
+			Tools,
 			ColorPicker,
 			CameraControl,
 		];
