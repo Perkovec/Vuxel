@@ -12,15 +12,15 @@ export class Tools extends EventEmitter {
     this.configs = configs;
 
     this.toolInstances = {
-      'single_voxel': new SingleVoxel(configs),
-      'remove_voxel': new RemoveVoxel(configs),
+      single_voxel: new SingleVoxel(configs),
+      remove_voxel: new RemoveVoxel(configs),
     };
 
     this.tools = document.querySelectorAll('.tool-item');
     this.currentTool = null;
     this.currentToolName = null;
 
-    this.tools.forEach(tool => {
+    this.tools.forEach((tool) => {
       tool.addEventListener('click', () => {
         this.setTool(tool.dataset.tool);
       });
