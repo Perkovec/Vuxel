@@ -1,6 +1,7 @@
 export class RemoveVoxel {
   constructor(configs) {
-    const THREE = this.THREE = configs.THREE;
+    const { THREE } = configs;
+    this.THREE = THREE;
 
     this.scene = configs.scene;
     this.renderer = configs.renderer;
@@ -11,9 +12,9 @@ export class RemoveVoxel {
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
-    
+
     const rollOverGeo = new THREE.BoxBufferGeometry(50, 50, 50);
-		const	rollOverMaterial = new THREE.MeshBasicMaterial({
+    const rollOverMaterial = new THREE.MeshBasicMaterial({
       color: 0xff0000,
       opacity: 0.5,
       transparent: true,
@@ -29,14 +30,14 @@ export class RemoveVoxel {
     this.scene.add(this.rollOverMesh);
 
     this.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove, false);
-		this.renderer.domElement.addEventListener('mousedown', this.onDocumentMouseDown, false);
+    this.renderer.domElement.addEventListener('mousedown', this.onDocumentMouseDown, false);
   }
 
   destroy() {
     this.scene.remove(this.rollOverMesh);
 
     this.renderer.domElement.removeEventListener('mousemove', this.onDocumentMouseMove, false);
-		this.renderer.domElement.removeEventListener('mousedown', this.onDocumentMouseDown, false);
+    this.renderer.domElement.removeEventListener('mousedown', this.onDocumentMouseDown, false);
   }
 
   onDocumentMouseMove(event) {
@@ -44,7 +45,7 @@ export class RemoveVoxel {
 
     this.mouse.set(
       ((event.clientX - this.rect.left) / this.renderer.domElement.clientWidth) * 2 - 1,
-      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1
+      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1,
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
@@ -65,7 +66,7 @@ export class RemoveVoxel {
 
     this.mouse.set(
       ((event.clientX - this.rect.left) / this.renderer.domElement.clientWidth) * 2 - 1,
-      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1
+      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1,
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 

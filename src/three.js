@@ -1,3 +1,3 @@
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three/build/three.module';
 
 export { THREE };

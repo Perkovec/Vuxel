@@ -1,6 +1,7 @@
-export class SingleVoxel  {
+export class SingleVoxel {
   constructor(configs) {
-    const THREE = this.THREE = configs.THREE;
+    const { THREE } = configs;
+    this.THREE = THREE;
 
     this.scene = configs.scene;
     this.renderer = configs.renderer;
@@ -12,9 +13,9 @@ export class SingleVoxel  {
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
-    
+
     const rollOverGeo = new THREE.BoxBufferGeometry(50, 50, 50);
-		const	rollOverMaterial = new THREE.MeshBasicMaterial({
+    const rollOverMaterial = new THREE.MeshBasicMaterial({
       color: 0x00ff00,
       opacity: 0.5,
       transparent: true,
@@ -22,7 +23,7 @@ export class SingleVoxel  {
     });
     this.rollOverMesh = new THREE.Mesh(rollOverGeo, rollOverMaterial);
 
-		this.cubeGeo = new THREE.BoxBufferGeometry(50, 50, 50);
+    this.cubeGeo = new THREE.BoxBufferGeometry(50, 50, 50);
     this.mainMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
 
     this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
@@ -33,14 +34,14 @@ export class SingleVoxel  {
     this.scene.add(this.rollOverMesh);
 
     this.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove, false);
-		this.renderer.domElement.addEventListener('mousedown', this.onDocumentMouseDown, false);
+    this.renderer.domElement.addEventListener('mousedown', this.onDocumentMouseDown, false);
   }
 
   destroy() {
     this.scene.remove(this.rollOverMesh);
 
     this.renderer.domElement.removeEventListener('mousemove', this.onDocumentMouseMove, false);
-		this.renderer.domElement.removeEventListener('mousedown', this.onDocumentMouseDown, false);
+    this.renderer.domElement.removeEventListener('mousedown', this.onDocumentMouseDown, false);
   }
 
   onDocumentMouseMove(event) {
@@ -48,7 +49,7 @@ export class SingleVoxel  {
 
     this.mouse.set(
       ((event.clientX - this.rect.left) / this.renderer.domElement.clientWidth) * 2 - 1,
-      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1
+      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1,
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
@@ -67,11 +68,11 @@ export class SingleVoxel  {
 
   onDocumentMouseDown(event) {
     event.preventDefault();
-    const THREE = this.THREE;
+    const { THREE } = this;
 
     this.mouse.set(
       ((event.clientX - this.rect.left) / this.renderer.domElement.clientWidth) * 2 - 1,
-      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1
+      -((event.clientY - this.rect.top) / this.renderer.domElement.clientHeight) * 2 + 1,
     );
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
