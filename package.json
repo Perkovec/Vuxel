@@ -1,18 +1,17 @@
 {
   "name": "vuxel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Open Source Voxel editor",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --no-source-maps",
     "build:gh-pages": "parcel build src/index.html --no-source-maps --public-url /Vuxel/"
   },
-  "author": "perkovec",
+  "author": "Perkovec <perkovec24@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "event-lite": "^0.1.2",
     "micromodal": "^0.4.2",
-    "microtip": "^0.2.2",
     "purecss": "^1.0.1",
     "storeon": "^1.0.0",
     "three": "^0.114.0",
