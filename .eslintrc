@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "no-param-reassign": [2, { "props": false }],
+    "no-underscore-dangle": "off",
+    "no-mixed-operators": "off",
+    "no-alert": "off",
+    "class-methods-use-this": "off"
+  },
+  "env": {
+    "browser": true
+  }
+}

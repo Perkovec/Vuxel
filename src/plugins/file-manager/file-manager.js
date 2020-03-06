@@ -1,23 +1,24 @@
 import { exporter } from './exporter';
 import { loader } from './loader';
+import { AbstractPlugin } from '../../core/plugin.abstract';
 
-export class FileManager {
+export class FileManager extends AbstractPlugin {
   static meta = {
     name: 'file-manager',
   };
 
   constructor(configs) {
-    this.configs = configs;
+    super(configs);
 
     const menuItems = document.querySelectorAll('.plugin-file-manager');
-    menuItems.forEach(item => {
+    menuItems.forEach((item) => {
       item.addEventListener('click', (event) => this.dispatchEvent(event, item.dataset.event));
-    })
+    });
 
     this.fakeLink = document.createElement('a');
-		this.fakeLink.style.display = 'none';
+    this.fakeLink.style.display = 'none';
     document.body.appendChild(this.fakeLink);
-    
+
     this.fakeInput = document.createElement('input');
     this.fakeInput.type = 'file';
     this.fakeInput.accept = '.vxl';
@@ -28,7 +29,7 @@ export class FileManager {
   }
 
   dispatchEvent(event, eventName) {
-    switch(eventName) {
+    switch (eventName) {
       case 'new':
         this.handleNew();
         break;
@@ -38,19 +39,21 @@ export class FileManager {
       case 'open':
         this.handleOpen();
         break;
+      default:
+        break;
     }
   }
 
   clearScene() {
-    const scene = this.configs.scene;
-    const sceneObjects = this.configs.sceneObjects;
-      
+    const { scene } = this.configs;
+    const { sceneObjects } = this.configs;
+
     scene.remove(...sceneObjects);
     sceneObjects.splice(0, sceneObjects.length);
   }
 
   handleNew() {
-    if (confirm('Are you sure you want to create a new file?')) {
+    if (window.confirm('Are you sure you want to create a new file?')) {
       this.clearScene();
       this.configs.render();
     }
@@ -61,8 +64,8 @@ export class FileManager {
 
     const output = JSON.stringify(data, null, 2);
     this.fakeLink.href = URL.createObjectURL(new Blob([output], { type: 'text/plain' }));
-		this.fakeLink.download = 'scene.vxl';
-		this.fakeLink.click();
+    this.fakeLink.download = 'scene.vxl';
+    this.fakeLink.click();
   }
 
   handleOpen() {
@@ -70,11 +73,11 @@ export class FileManager {
   }
 
   fileSelected(event) {
-    const files = event.target.files;
-    const THREE = this.configs.THREE;
-    const scene = this.configs.scene;
-    const sceneObjects = this.configs.sceneObjects;
-    
+    const { files } = event.target;
+    const { THREE } = this.configs;
+    const { scene } = this.configs;
+    const { sceneObjects } = this.configs;
+
     if (files && files.length) {
       const reader = new FileReader();
       reader.readAsText(files[0]);
@@ -83,10 +86,10 @@ export class FileManager {
         this.clearScene();
 
         const data = loader(THREE, reader.result);
-        data.forEach(voxel => {
+        data.forEach((voxel) => {
           scene.add(voxel);
           sceneObjects.push(voxel);
-        })
+        });
 
         this.configs.render();
       };
