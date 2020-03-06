@@ -1,3 +1,5 @@
+import { store } from './store';
+
 export class App {
   constructor(THREE, plugins) {
     this.THREE = THREE;
@@ -48,11 +50,13 @@ export class App {
       objects: this.objects,
       plugins: this.pluginsInstances,
       rect: this.rect,
+      store,
     };
 
     plugins.forEach((Plugin) => {
       this.pluginsInstances[Plugin.meta.name] = new Plugin(pluginsConfig);
     });
+    store.dispatch('@init/plugins');
   }
 
   createLight() {

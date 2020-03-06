@@ -2,8 +2,9 @@
   <ul class="pure-menu-list">
     <li class="pure-menu-heading">Tools</li>
     <li class="pure-menu-item tools-container">
-      <button class="tool-item flaticon-3d" data-tool="single_voxel"></button>
-      <button class="tool-item flaticon-eraser" data-tool="remove_voxel"></button>
+      <button class="tool-item flaticon-eye" data-tool="camera_control" data-microtip-position="right" role="tooltip"></button>
+      <button class="tool-item flaticon-3d" data-tool="single_voxel" aria-label="Place single voxel"></button>
+      <button class="tool-item flaticon-eraser" data-tool="remove_voxel" aria-label="Remove single voxel"></button>
     </li>
     <li class="pure-menu-heading" data-plugin-color-picker>Color</li>
     <li class="pure-menu-item brush-color-container" data-plugin-color-picker>
@@ -22,10 +23,4 @@
       <input type="text" id="brush-color-input" class="brush-color-input" />
     </li>
   </ul>
-
-  <div class="ui-sidebar-guide-block">
-    <p><b>Click + Move</b> - rotate camera</p>
-    <p><b>Right Click + Move</b> - move camera</p>
-    <p><b>Mouse Wheel</b> - camera zoom</p>
-  </div>
 </div>

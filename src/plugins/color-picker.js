@@ -1,10 +1,12 @@
-export class ColorPicker {
+import { AbstractPlugin } from '../core/plugin.abstract';
+
+export class ColorPicker extends AbstractPlugin {
   static meta = {
     name: 'color-picker',
   };
 
   constructor(configs) {
-    this.configs = configs;
+    super(configs);
     this.plugins = configs.plugins;
 
     this.avaliableTools = ['single_voxel'];
@@ -48,7 +50,7 @@ export class ColorPicker {
   setupListeners() {
     const toolsPlugin = this.plugins.tools;
 
-    toolsPlugin.on('tool_enabled', (toolName, tool) => {
+    toolsPlugin.on('tool_initialized', (toolName, tool) => {
       if (this.avaliableTools.includes(toolName)) {
         this.colorInput.value = `#${tool.mainMaterial.color.getHexString()}`;
         this.show();

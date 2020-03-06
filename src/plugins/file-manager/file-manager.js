@@ -1,13 +1,14 @@
 import { exporter } from './exporter';
 import { loader } from './loader';
+import { AbstractPlugin } from '../../core/plugin.abstract';
 
-export class FileManager {
+export class FileManager extends AbstractPlugin {
   static meta = {
     name: 'file-manager',
   };
 
   constructor(configs) {
-    this.configs = configs;
+    super(configs);
 
     const menuItems = document.querySelectorAll('.plugin-file-manager');
     menuItems.forEach((item) => {

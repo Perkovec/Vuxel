@@ -1,4 +1,8 @@
 export class RemoveVoxel {
+  meta = {
+    alt: 'Remove single voxel',
+  }
+
   constructor(configs) {
     const { THREE } = configs;
     this.THREE = THREE;
@@ -9,6 +13,8 @@ export class RemoveVoxel {
     this.sceneObjects = configs.sceneObjects;
     this.render = configs.render;
     this.rect = configs.rect;
+
+    this.enabled = true;
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
@@ -26,6 +32,16 @@ export class RemoveVoxel {
     this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
   }
 
+  enable() {
+    this.enabled = true;
+    this.rollOverMesh.material.visible = true;
+  }
+
+  disable() {
+    this.enabled = false;
+    this.rollOverMesh.material.visible = false;
+  }
+
   init() {
     this.scene.add(this.rollOverMesh);
 
@@ -41,6 +57,7 @@ export class RemoveVoxel {
   }
 
   onDocumentMouseMove(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
 
     this.mouse.set(
@@ -62,6 +79,7 @@ export class RemoveVoxel {
   }
 
   onDocumentMouseDown(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
 
     this.mouse.set(
