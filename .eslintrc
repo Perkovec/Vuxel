@@ -7,7 +7,8 @@
     "no-param-reassign": [2, { "props": false }],
     "no-underscore-dangle": "off",
     "no-mixed-operators": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "class-methods-use-this": "off"
   },
   "env": {
     "browser": true

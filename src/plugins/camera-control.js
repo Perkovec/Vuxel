@@ -1,14 +1,17 @@
 /* BASED ON https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js */
+import { AbstractPlugin } from '../core/plugin.abstract';
 
-export class CameraControl {
+export class CameraControl extends AbstractPlugin {
   static meta = {
     name: 'camera-control',
   };
 
   constructor(configs) {
+    super(configs);
     const { THREE } = configs;
     this.THREE = THREE;
 
+    this.enabled = false;
     this.render = configs.render;
     this.camera = configs.camera;
     this.domElement = configs.renderer.domElement;
@@ -215,6 +218,7 @@ export class CameraControl {
   }
 
   onMouseDown(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
     const { THREE } = this;
 
@@ -295,6 +299,7 @@ export class CameraControl {
   }
 
   onMouseMove(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
 
     switch (this._state) {
@@ -322,6 +327,7 @@ export class CameraControl {
   }
 
   onMouseUp() {
+    if (this.enabled === false) return;
     document.removeEventListener('mousemove', this.onMouseMove, false);
     document.removeEventListener('mouseup', this.onMouseUp, false);
 
@@ -330,7 +336,8 @@ export class CameraControl {
 
   onMouseWheel(event) {
     if (
-      this.enableZoom === false
+      this.enabled === false
+      || this.enableZoom === false
       || (this._state !== this._STATE.NONE && this._state !== this._STATE.ROTATE)
     ) {
       return;
@@ -343,12 +350,13 @@ export class CameraControl {
   }
 
   onKeyDown(event) {
-    if (this.enableKeys === false || this.enablePan === false) return;
+    if (this.enabled === false || this.enableKeys === false || this.enablePan === false) return;
 
     this.handleKeyDown(event);
   }
 
-  static onContextMenu(event) {
+  onContextMenu(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
   }
 

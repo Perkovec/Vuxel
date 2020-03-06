@@ -1,4 +1,8 @@
 export class SingleVoxel {
+  meta = {
+    alt: 'Place single voxel',
+  }
+
   constructor(configs) {
     const { THREE } = configs;
     this.THREE = THREE;
@@ -10,6 +14,8 @@ export class SingleVoxel {
     this.sceneObjects = configs.sceneObjects;
     this.render = configs.render;
     this.rect = configs.rect;
+
+    this.enabled = true;
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
@@ -30,6 +36,16 @@ export class SingleVoxel {
     this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
   }
 
+  enable() {
+    this.enabled = true;
+    this.rollOverMesh.material.visible = true;
+  }
+
+  disable() {
+    this.enabled = false;
+    this.rollOverMesh.material.visible = false;
+  }
+
   init() {
     this.scene.add(this.rollOverMesh);
 
@@ -45,6 +61,7 @@ export class SingleVoxel {
   }
 
   onDocumentMouseMove(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
 
     this.mouse.set(
@@ -67,6 +84,7 @@ export class SingleVoxel {
   }
 
   onDocumentMouseDown(event) {
+    if (this.enabled === false) return;
     event.preventDefault();
     const { THREE } = this;
 

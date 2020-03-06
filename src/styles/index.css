@@ -105,6 +105,12 @@ html, body {
   margin: 5px;
   background-color: #ffffff;
   font-size: 20px;
+  outline: none;
+}
+
+.tool-item.active {
+  background-color: #999;
+  color: white;
 }
 
 .tool-item.flaticon-3d:before {
