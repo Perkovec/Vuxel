@@ -9,7 +9,7 @@ export class ColorPicker extends AbstractPlugin {
     super(configs);
     this.plugins = configs.plugins;
 
-    this.avaliableTools = ['single_voxel'];
+    this.avaliableTools = ['single_voxel', 'paint_brush'];
 
     this.colorInput = document.getElementById('brush-color-input');
     this.presets = document.querySelectorAll('.brush-color');
