@@ -10,6 +10,7 @@
   "author": "Perkovec <perkovec24@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@jaames/iro": "^5.1.5",
     "event-lite": "^0.1.2",
     "micromodal": "^0.4.2",
     "purecss": "^1.0.1",

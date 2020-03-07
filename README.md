@@ -2,13 +2,13 @@
 
 [![Build Status](https://travis-ci.org/Perkovec/Vuxel.svg?branch=master)](https://travis-ci.org/Perkovec/Vuxel) [![Greenkeeper badge](https://badges.greenkeeper.io/Perkovec/Vuxel.svg)](https://greenkeeper.io/)
 
-Version 0.0.3
+Version 0.0.4
 
 By Ilya Karpuk perkovec24@gmail.com
 
 ## About
 
-Vuxel - tool for created 3D models using voxels.
+Vuxel - tool for creating 3D models using voxels.
 
 ![Demo](demo.png)
 
@@ -36,9 +36,12 @@ npm run build
 - [x] Camera rotation
 - [ ] Orientation indicator and controller
 - [x] Painting tools
-- [ ] Advanced color picker
+- [x] Advanced color picker
 - [x] Export/import models
 - [ ] Layers
+- [ ] Tool for bulk creation of voxels
+- [ ] Keybindings for tools
+- [ ] Dark theme (need help)
 
 ## Licence
 
