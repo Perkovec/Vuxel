@@ -35,7 +35,7 @@ npm run build
 
 - [x] Camera rotation
 - [ ] Orientation indicator and controller
-- [ ] Painting tools
+- [x] Painting tools
 - [ ] Advanced color picker
 - [x] Export/import models
 - [ ] Layers

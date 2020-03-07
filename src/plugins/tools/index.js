@@ -3,6 +3,7 @@ import { AbstractPlugin } from '../../core/plugin.abstract';
 import { SingleVoxel } from './single-voxel';
 import { RemoveVoxel } from './remove-voxel';
 import { CameraControl } from './camera-control';
+import { PaintBrush } from './paint-brush';
 
 export class Tools extends AbstractPlugin {
   static meta = {
@@ -14,6 +15,7 @@ export class Tools extends AbstractPlugin {
       single_voxel: new SingleVoxel(this.configs),
       remove_voxel: new RemoveVoxel(this.configs),
       camera_control: new CameraControl(this.configs),
+      paint_brush: new PaintBrush(this.configs),
     };
 
     this.tools = document.querySelectorAll('.tool-item');
