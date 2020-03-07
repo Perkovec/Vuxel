@@ -1,4 +1,3 @@
-import tippy from 'tippy.js';
 import { AbstractPlugin } from '../../core/plugin.abstract';
 import { SingleVoxel } from './single-voxel';
 import { RemoveVoxel } from './remove-voxel';
@@ -30,7 +29,7 @@ export class Tools extends AbstractPlugin {
 
       const toolInstance = this.toolInstances[toolName];
       if (toolInstance && toolInstance.meta && toolInstance.meta.alt) {
-        tippy(tool, {
+        window.tippy(tool, {
           delay: [500, 250],
           placement: 'top',
           content: toolInstance.meta.alt,

@@ -30,6 +30,8 @@ const assets = [
 
   // LIBS
   import('micromodal/dist/micromodal.min.js'),
+  import('tippy.js'),
+  import('@jaames/iro'),
 
   // PLUGINS
   import('./plugins/file-manager/file-manager.js'),
@@ -51,6 +53,8 @@ progressPromise(assets, update)
 
     // LIBS
     MicroModal,
+    tippy,
+    iro,
 
     // PLUGINS
     { FileManager },
@@ -59,6 +63,10 @@ progressPromise(assets, update)
     { CameraControl },
   ]) => {
     MicroModal.init();
+    Object.assign(window, {
+      tippy: tippy.default,
+      iro: iro.default,
+    });
 
     const plugins = [
       FileManager,

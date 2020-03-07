@@ -11,13 +11,31 @@ export class ColorPicker extends AbstractPlugin {
 
     this.avaliableTools = ['single_voxel', 'paint_brush'];
 
+    this.colorPicker = new window.iro.ColorPicker('#iro-color-picker', {
+      width: 240,
+      layout: [
+        {
+          component: window.iro.ui.Box,
+        },
+        {
+          component: window.iro.ui.Slider,
+          options: {
+            sliderType: 'hue',
+          },
+        },
+      ],
+    });
+    this.colorPicker.on('input:change', (color) => this.onChangeColor(color));
+
     this.colorInput = document.getElementById('brush-color-input');
     this.presets = document.querySelectorAll('.brush-color');
     this.containers = document.querySelectorAll('[data-plugin-color-picker]');
 
     if (this.plugins.tools) {
       if (this.avaliableTools.includes(this.plugins.tools.currentToolName)) {
-        this.colorInput.value = `#${this.plugins.tools.currentTool.mainMaterial.color.getHexString()}`;
+        const color = this.plugins.tools.currentTool.mainMaterial.color.getHexString();
+        this.colorInput.value = `#${color}`;
+        this.colorPicker.color.hexString = `#${color}`;
       }
       this.setupListeners();
     } else {
@@ -29,6 +47,7 @@ export class ColorPicker extends AbstractPlugin {
       preset.addEventListener('click', () => {
         this.setBrushColor(preset.dataset.color);
         this.colorInput.value = preset.dataset.color;
+        this.colorPicker.color.hexString = preset.dataset.color;
       });
     });
 
@@ -47,12 +66,19 @@ export class ColorPicker extends AbstractPlugin {
     });
   }
 
+  onChangeColor(color) {
+    this.setBrushColor(color.hexString);
+    this.colorInput.value = color.hexString;
+  }
+
   setupListeners() {
     const toolsPlugin = this.plugins.tools;
 
     toolsPlugin.on('tool_initialized', (toolName, tool) => {
       if (this.avaliableTools.includes(toolName)) {
-        this.colorInput.value = `#${tool.mainMaterial.color.getHexString()}`;
+        const color = tool.mainMaterial.color.getHexString();
+        this.colorInput.value = `#${color}`;
+        this.colorPicker.color.hexString = color;
         this.show();
       } else {
         this.hide();
