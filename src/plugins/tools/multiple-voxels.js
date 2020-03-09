@@ -1,6 +1,7 @@
 export class MultipleVoxels {
   meta = {
-    alt: 'Place multiple voxels',
+    alt: 'Place multiple voxels (M)',
+    key: 'M',
   }
 
   constructor(configs) {

@@ -1,6 +1,7 @@
 export class PaintBrush {
   meta = {
-    alt: 'Paint brush',
+    alt: 'Paint brush (P)',
+    key: 'P',
   }
 
   constructor(configs) {

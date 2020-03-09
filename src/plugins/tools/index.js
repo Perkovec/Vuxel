@@ -19,17 +19,24 @@ export class Tools extends AbstractPlugin {
       multiple_voxels: new MultipleVoxels(this.configs),
     };
 
+    this.keyToToolMap = {};
+
     this.tools = document.querySelectorAll('.tool-item');
     this.currentTool = null;
     this.currentToolName = null;
 
     this.tools.forEach((tool) => {
       const toolName = tool.dataset.tool;
+      const toolInstance = this.toolInstances[toolName];
+
       tool.addEventListener('click', () => {
         this.setTool(tool);
       });
 
-      const toolInstance = this.toolInstances[toolName];
+      if (toolInstance && toolInstance.meta && toolInstance.meta.key) {
+        this.keyToToolMap[toolInstance.meta.key] = tool;
+      }
+
       if (toolInstance && toolInstance.meta && toolInstance.meta.alt) {
         window.tippy(tool, {
           delay: [500, 250],
@@ -39,7 +46,20 @@ export class Tools extends AbstractPlugin {
       }
     });
 
-    this.setTool(this.tools[3]);
+    this.setTool(this.tools[0]);
+
+    this.onKeyPress = this.onKeyPress.bind(this);
+
+    document.addEventListener('keypress', this.onKeyPress);
+  }
+
+  onKeyPress(event) {
+    if (event.code.startsWith('Key')) {
+      const tool = this.keyToToolMap[event.code[event.code.length - 1]];
+      if (tool) {
+        this.setTool(tool);
+      }
+    }
   }
 
   disable() {

@@ -1,6 +1,7 @@
 export class SingleVoxel {
   meta = {
-    alt: 'Place single voxel',
+    alt: 'Place single voxel (S)',
+    key: 'S',
   }
 
   constructor(configs) {

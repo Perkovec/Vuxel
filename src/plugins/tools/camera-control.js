@@ -1,6 +1,7 @@
 export class CameraControl {
   meta = {
-    alt: 'Camera control',
+    alt: 'Camera control (C)',
+    key: 'C',
   }
 
   constructor(configs) {
