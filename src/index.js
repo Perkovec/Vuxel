@@ -63,10 +63,8 @@ progressPromise(assets, update)
     { CameraControl },
   ]) => {
     MicroModal.init();
-    Object.assign(window, {
-      tippy: tippy.default,
-      iro: iro.default,
-    });
+    window.tippy = tippy.default;
+    window.iro = iro.default;
 
     const plugins = [
       FileManager,
