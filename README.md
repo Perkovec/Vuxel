@@ -10,7 +10,7 @@ By Ilya Karpuk perkovec24@gmail.com
 
 Vuxel - tool for creating 3D models using voxels.
 
-![Demo](demo.png)
+![Demo](demo.gif)
 
 ## Install & Build
 
@@ -31,17 +31,18 @@ For build project use `build` script:
 npm run build
 ```
 
-## Roadmap
+## Features
 
 - [x] Camera rotation
-- [ ] Orientation indicator and controller
+- [x] Tool for bulk creation of voxels
+- [x] Load/save models
 - [x] Painting tools
 - [x] Advanced color picker
-- [x] Export/import models
+- [ ] Orientation indicator and controller
 - [ ] Layers
-- [ ] Tool for bulk creation of voxels
 - [ ] Keybindings for tools
 - [ ] Dark theme (need help)
+- [ ] Export models
 
 ## Licence
 

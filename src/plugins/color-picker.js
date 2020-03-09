@@ -9,7 +9,7 @@ export class ColorPicker extends AbstractPlugin {
     super(configs);
     this.plugins = configs.plugins;
 
-    this.avaliableTools = ['single_voxel', 'paint_brush'];
+    this.avaliableTools = ['single_voxel', 'paint_brush', 'multiple_voxels'];
 
     this.colorPicker = new window.iro.ColorPicker('#iro-color-picker', {
       width: 240,
