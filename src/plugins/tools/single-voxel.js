@@ -21,13 +21,16 @@ export class SingleVoxel {
     this.mouse = new THREE.Vector2();
 
     const rollOverGeo = new THREE.BoxBufferGeometry(50, 50, 50);
-    const rollOverMaterial = new THREE.MeshBasicMaterial({
-      color: 0x00ff00,
-      opacity: 0.5,
-      transparent: true,
-      visible: false,
+    const rollOverMaterial = new THREE.LineDashedMaterial({
+      color: 0x000000,
+      dashSize: 5,
+      gapSize: 5,
+      linewidth: 1,
     });
-    this.rollOverMesh = new THREE.Mesh(rollOverGeo, rollOverMaterial);
+    this.rollOverMesh = new THREE.LineSegments(
+      new THREE.EdgesGeometry(rollOverGeo), rollOverMaterial,
+    );
+    this.rollOverMesh.computeLineDistances();
 
     this.cubeGeo = new THREE.BoxBufferGeometry(50, 50, 50);
     this.mainMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
@@ -58,6 +61,7 @@ export class SingleVoxel {
 
     this.renderer.domElement.removeEventListener('mousemove', this.onDocumentMouseMove, false);
     this.renderer.domElement.removeEventListener('mousedown', this.onDocumentMouseDown, false);
+    this.render();
   }
 
   onDocumentMouseMove(event) {
