@@ -1,3 +1,3 @@
-import createStore from 'storeon';
+import { createStoreon } from 'storeon';
 
-export const store = createStore([]);
+export const store = createStoreon([]);
