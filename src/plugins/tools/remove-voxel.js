@@ -1,6 +1,7 @@
 export class RemoveVoxel {
   meta = {
-    alt: 'Remove single voxel',
+    alt: 'Remove single voxel (E)',
+    key: 'E',
   }
 
   constructor(configs) {

@@ -38,9 +38,9 @@ npm run build
 - [x] Load/save models
 - [x] Painting tools
 - [x] Advanced color picker
+- [x] Keybindings for tools
 - [ ] Orientation indicator and controller
 - [ ] Layers
-- [ ] Keybindings for tools
 - [ ] Dark theme (need help)
 - [ ] Export models
 
