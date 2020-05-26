@@ -15,7 +15,7 @@
     "micromodal": "^0.4.6",
     "purecss": "^1.0.1",
     "storeon": "^2.0.2",
-    "three": "^0.115.0",
+    "three": "^0.116.0",
     "tippy.js": "^6.1.0"
   },
   "devDependencies": {
