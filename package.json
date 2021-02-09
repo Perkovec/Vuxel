@@ -1,6 +1,6 @@
 {
   "name": "vuxel",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Open Source Voxel editor",
   "scripts": {
     "start": "parcel src/index.html",
@@ -10,25 +10,25 @@
   "author": "Perkovec <perkovec24@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@jaames/iro": "^5.1.5",
+    "@jaames/iro": "^5.3.1",
     "event-lite": "^0.1.2",
     "micromodal": "^0.4.6",
-    "purecss": "^2.0.3",
-    "storeon": "^3.0.2",
-    "three": "^0.117.1",
-    "tippy.js": "^6.1.0"
+    "purecss": "^2.0.5",
+    "storeon": "^3.1.4",
+    "three": "^0.125.2",
+    "tippy.js": "^6.2.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/core": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^4.0.3",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "parcel": "^1.12.4",
-    "posthtml-include": "^1.4.0"
+    "posthtml-include": "^1.6.0"
   }
 }
